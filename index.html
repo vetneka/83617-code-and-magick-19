@@ -186,22 +186,52 @@
   var WIZARD_HEIGHT_PROPORTION = 1.337;
 
   var fireballSize = 22;
-  var getFireballSpeed = function (left) {
-    var result = (left === true) ? 5 : 2;
 
-    return result;
+  /**
+   * @description
+   *  Getting fireball speed
+   *
+   * @param {boolean} left - Boolean flag which means turning fireball into the left
+   *
+   * @returns {number} - return speed of firebal
+   */
+  var getFireballSpeed = function (left) {
+    return true ? 5 : 2;
   };
 
   var wizardSpeed = 3;
   var wizardWidth = 70;
+
+  /**
+   * @description
+   *  Getting wizard height
+   *
+   * @returns {number} - return wizard height
+   */
   var getWizardHeight = function () {
     return WIZARD_HEIGHT_PROPORTION * wizardWidth;
   };
 
+  /**
+   * @description
+   *  Getting center X-position of the wizard on the game area
+   *
+   * @param {number} width - Game area width
+   *
+   * @returns {number} - return X-coordinate of the wizard on the game area
+   */
   function getWizardX (width) {
     return width / 2;
   }
 
+  /**
+   * @description
+   *  Getting 2/3 Y-position of the wizard on the game area
+   *
+   * @param {number} height - Game area height
+   *
+   * @returns {number} - return Y-coordinate of the wizard on the game area
+   */
   function getWizardY (height) {
     return height * 2 / 3;
   }
