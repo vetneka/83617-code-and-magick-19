@@ -136,10 +136,6 @@ var histogramRender = function (ctx, x, y, names, times) {
       paintHistogramColumn(ctx, barHeight, barColor, histogramColumnGap);
     }
 
-    /* ctx.fillStyle = TEXT_COLOR;
-    ctx.fillText(currentPlayerName, startTextX, startNamesY);
-    ctx.fillText(currentPlayerTime, startTextX, startTimesY); */
-
     textRender(ctx, currentPlayerName, startTextX, startNamesY, BASE_FONT, TEXT_COLOR);
     textRender(ctx, currentPlayerTime, startTextX, startTimesY, BASE_FONT, TEXT_COLOR);
   }
@@ -157,13 +153,6 @@ var histogramRender = function (ctx, x, y, names, times) {
 window.renderStatistics = function (ctx, names, times) {
   cloudRender(ctx, CLOUD_X + CLOUD_GAP, CLOUD_Y + CLOUD_GAP, CLOUD_SHADOW_COLOR);
   cloudRender(ctx, CLOUD_X, CLOUD_Y, CLOUD_COLOR);
-
-  /* ctx.fillStyle = TEXT_COLOR;
-  ctx.font = BASE_FONT;
-  ctx.textBaseline = 'hanging';
-
-  ctx.fillText('Ура вы победили!', CLOUD_X + CLOUD_PADDING_LEFT, CLOUD_Y + CLOUD_PADDING_TOP);
-  ctx.fillText('Список результатов:', CLOUD_X + CLOUD_PADDING_LEFT, CLOUD_Y + CLOUD_PADDING_TOP + TEXT_LINE_HEIGHT); */
 
   textRender(ctx, 'Ура вы победили!', CLOUD_X + CLOUD_PADDING_LEFT, CLOUD_Y + CLOUD_PADDING_TOP, BASE_FONT, TEXT_COLOR);
   textRender(ctx, 'Список результатов:', CLOUD_X + CLOUD_PADDING_LEFT, CLOUD_Y + CLOUD_PADDING_TOP + TEXT_LINE_HEIGHT, BASE_FONT, TEXT_COLOR);
