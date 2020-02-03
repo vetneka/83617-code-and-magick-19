@@ -170,24 +170,33 @@ var renderSimilarWizards = function (number) {
 
 var similarWizards = renderSimilarWizards();
 
-setupSimilarList.appendChild(similarWizards);
-
-
 var onKeydownEscSetup = function (evt) {
   if (evt.key === KEY_ESCAPE) {
     closeSetup();
   }
 };
 
+/**
+ * @description
+ *  Open setup window and add event listener for key "Escape"
+ * @return {void}
+ */
 var openSetup = function () {
   setup.classList.remove('hidden');
   document.addEventListener('keydown', onKeydownEscSetup);
 };
 
+/**
+ * @description
+ *  Close setup window and remove event listener for key "Escape"
+ * @return {void}
+ */
 var closeSetup = function () {
   setup.classList.add('hidden');
   document.removeEventListener('keydown', onKeydownEscSetup);
 };
+
+setupSimilarList.appendChild(similarWizards);
 
 setupOpen.addEventListener('click', function () {
   openSetup();
@@ -218,31 +227,34 @@ setupUserName.addEventListener('blur', function () {
 });
 
 wizardCoat.addEventListener('click', function () {
-  wizardCoat.style.fill = getRandomArrayValue(wizardCoatColors);
+  var coatColor = getRandomArrayValue(wizardCoatColors);
+  wizardCoat.style.fill = coatColor;
 
   for (var i = 0; i < hiddenInputFields.length; i++) {
     if (hiddenInputFields[i].name === 'coat-color') {
-      hiddenInputFields[i].value = wizardCoat.style.fill;
+      hiddenInputFields[i].value = coatColor;
     }
   }
 });
 
 wizardEyes.addEventListener('click', function () {
-  wizardEyes.style.fill = getRandomArrayValue(wizardEyesColors);
+  var eyesColor = getRandomArrayValue(wizardEyesColors);
+  wizardEyes.style.fill = eyesColor;
 
   for (var i = 0; i < hiddenInputFields.length; i++) {
     if (hiddenInputFields[i].name === 'eyes-color') {
-      hiddenInputFields[i].value = wizardEyes.style.fill;
+      hiddenInputFields[i].value = eyesColor;
     }
   }
 });
 
 setupFireballWrap.addEventListener('click', function () {
-  setupFireballWrap.style.background = getRandomArrayValue(wizardFireballColors);
+  var fireballColor = getRandomArrayValue(wizardFireballColors);
+  setupFireballWrap.style.backgroundColor = fireballColor;
 
   for (var i = 0; i < hiddenInputFields.length; i++) {
     if (hiddenInputFields[i].name === 'fireball-color') {
-      hiddenInputFields[i].value = setupFireballWrap.style.background;
+      hiddenInputFields[i].value = fireballColor;
     }
   }
 });
