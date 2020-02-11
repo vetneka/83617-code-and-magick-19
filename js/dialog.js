@@ -38,7 +38,6 @@
   var closeSetup = function () {
     setup.classList.add('hidden');
     document.removeEventListener('keydown', onKeydownEscSetup);
-
   };
 
   setupOpen.addEventListener('click', function () {
