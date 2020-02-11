@@ -198,7 +198,7 @@
      * @return {number} - return speed of firebal
      */
     var getFireballSpeed = function (left) {
-      return true ? 5 : 2;
+      return left ? 5 : 2;
     };
 
     var wizardSpeed = 3;
@@ -222,7 +222,7 @@
      *
      * @return {number} - return X-coordinate of the wizard on the game area
      */
-    function getWizardX (width) {
+    var getWizardX = function (width) {
       return width / 2;
     }
 
@@ -234,7 +234,7 @@
      *
      * @return {number} - return Y-coordinate of the wizard on the game area
      */
-    function getWizardY (height) {
+    var getWizardY = function (height) {
       return height * 2 / 3;
     }
 
