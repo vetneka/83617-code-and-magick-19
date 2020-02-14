@@ -183,62 +183,79 @@
 
 <script>
   'use strict';
-  var WIZARD_HEIGHT_PROPORTION = 1.337;
 
-  var fireballSize = 22;
+  (function () {
+    var WIZARD_HEIGHT_PROPORTION = 1.337;
 
-  /**
-   * @description
-   *  Getting fireball speed
-   *
-   * @param {boolean} left - Boolean flag which means turning fireball into the left
-   *
-   * @return {number} - return speed of firebal
-   */
-  var getFireballSpeed = function (left) {
-    return true ? 5 : 2;
-  };
+    var fireballSize = 22;
 
-  var wizardSpeed = 3;
-  var wizardWidth = 70;
+    /**
+     * @description
+     *  Getting fireball speed
+     *
+     * @param {boolean} left - Boolean flag which means turning fireball into the left
+     *
+     * @return {number} - return speed of firebal
+     */
+    var getFireballSpeed = function (left) {
+      return left ? 5 : 2;
+    };
 
-  /**
-   * @description
-   *  Getting wizard height
-   *
-   * @return {number} - return wizard height
-   */
-  var getWizardHeight = function () {
-    return WIZARD_HEIGHT_PROPORTION * wizardWidth;
-  };
+    var wizardSpeed = 3;
+    var wizardWidth = 70;
 
-  /**
-   * @description
-   *  Getting center X-position of the wizard on the game area
-   *
-   * @param {number} width - Game area width
-   *
-   * @return {number} - return X-coordinate of the wizard on the game area
-   */
-  function getWizardX (width) {
-    return width / 2;
-  }
+    /**
+     * @description
+     *  Getting wizard height
+     *
+     * @return {number} - return wizard height
+     */
+    var getWizardHeight = function () {
+      return WIZARD_HEIGHT_PROPORTION * wizardWidth;
+    };
 
-  /**
-   * @description
-   *  Getting 2/3 Y-position of the wizard on the game area
-   *
-   * @param {number} height - Game area height
-   *
-   * @return {number} - return Y-coordinate of the wizard on the game area
-   */
-  function getWizardY (height) {
-    return height * 2 / 3;
-  }
+    /**
+     * @description
+     *  Getting center X-position of the wizard on the game area
+     *
+     * @param {number} width - Game area width
+     *
+     * @return {number} - return X-coordinate of the wizard on the game area
+     */
+    var getWizardX = function (width) {
+      return width / 2;
+    }
+
+    /**
+     * @description
+     *  Getting 2/3 Y-position of the wizard on the game area
+     *
+     * @param {number} height - Game area height
+     *
+     * @return {number} - return Y-coordinate of the wizard on the game area
+     */
+    var getWizardY = function (height) {
+      return height * 2 / 3;
+    }
+
+    window.getFireballSpeed = getFireballSpeed;
+    window.getWizardHeight = getWizardHeight;
+    window.getWizardX = getWizardX;
+    window.getWizardY = getWizardY;
+  })();
 </script>
 
 <script src="js/stat.js"></script>
+<script src="js/data.js"></script>
+<script src="js/random.js"></script>
+<script src="js/util.js"></script>
+
+
+<script src="js/dialog.js"></script>
+<script src="js/colorize.js"></script>
+<script src="js/similar-wizards.js"></script>
 <script src="js/setup.js"></script>
+
 <script src="js/game.js"></script>
 
 </body>
