@@ -4,6 +4,35 @@
   var XHR_URL = 'https://js.dump.academy/code-and-magick/data';
   var XHR_URL_FORM = 'https://js.dump.academy/code-and-magick/';
 
+  var XHR_ERROR_MESSAGE = 'Произошла ошибка соединения';
+  var XHR_TIMEOUT_MESSAGE = 'Запрос не успел выполниться за ';
+  var XHR_TIMEOUT = 10000;
+
+  var StatusCode = {
+    OK: 200,
+  };
+
+  /**
+   * @description
+   *  Request error handler
+   *
+   * @param {object} xhr - request
+   * @param {function} onError - callback for error handling
+   *
+   * @return {void}
+   */
+  var onСheckXhrError = function (xhr, onError) {
+    xhr.addEventListener('error', function () {
+      onError(XHR_ERROR_MESSAGE);
+    });
+
+    xhr.addEventListener('timeout', function () {
+      onError(XHR_TIMEOUT_MESSAGE + xhr.timeout + 'мс');
+    });
+
+    xhr.timeout = XHR_TIMEOUT;
+  };
+
   /**
    * @description
    *  Create XMLHTTPRequest for download data from server
@@ -27,22 +56,14 @@
         onError('Cтатус ответа: ' + xhr.status + ' ' + error.message);
       }
 
-      if (xhr.status === 200) {
+      if (xhr.status === StatusCode.OK) {
         onSuccess(data);
       } else {
         onError('Cтатус ответа: ' + xhr.status + ' ' + xhr.statusText);
       }
     });
 
-    xhr.addEventListener('error', function () {
-      onError('Произошла ошибка соединения');
-    });
-
-    xhr.addEventListener('timeout', function () {
-      onError('Запрос не успел выполниться за ' + xhr.timeout + 'мс');
-    });
-
-    xhr.timeout = 10000; // 10s
+    onСheckXhrError(xhr, onError);
 
     xhr.send();
   };
@@ -63,22 +84,14 @@
     xhr.open('POST', XHR_URL_FORM);
 
     xhr.addEventListener('load', function () {
-      if (xhr.status === 200) {
-        onSuccess(xhr.response);
+      if (xhr.status === StatusCode.OK) {
+        onSuccess();
       } else {
         onError('Cтатус ответа: ' + xhr.status + ' ' + xhr.statusText);
       }
     });
 
-    xhr.addEventListener('error', function () {
-      onError('Произошла ошибка соединения');
-    });
-
-    xhr.addEventListener('timeout', function () {
-      onError('Запрос не успел выполниться за ' + xhr.timeout + 'мс');
-    });
-
-    xhr.timeout = 10000; // 10s
+    onСheckXhrError(xhr, onError);
 
     xhr.send(data);
   };
