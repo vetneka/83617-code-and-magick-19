@@ -181,6 +181,21 @@
   </div>
 </template>
 
+<!-- Сообщение об успешной отправке формы -->
+<template id="success">
+  <div class="success">
+    <p class="success__message"></p>
+  </div>
+</template>
+
+<!-- Сообщение об ошибке отправки формы -->
+<template id="error">
+  <div class="error">
+    <p class="error__message">Ошибка отправки формы</p>
+    <button class="button error__button">Попробовать снова</button>
+  </div>
+</template>
+
 <script>
   'use strict';
 
@@ -249,11 +264,12 @@
 <script src="js/data.js"></script>
 <script src="js/random.js"></script>
 <script src="js/util.js"></script>
-
+<script src="js/modal.js"></script>
+<script src="js/backend.js"></script>
 
 <script src="js/dialog.js"></script>
 <script src="js/colorize.js"></script>
-<script src="js/similar-wizards.js"></script>
+<script src="js/wizards.js"></script>
 <script src="js/setup.js"></script>
 
 <script src="js/game.js"></script>
