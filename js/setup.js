@@ -1,6 +1,8 @@
 'use strict';
 
 (function () {
+  var SUCCESS_MESSAGE_TIMEOUT = 2000;
+
   var setup = document.querySelector('.setup');
   var setupSimilarList = document.querySelector('.setup-similar-list');
 
@@ -28,7 +30,7 @@
 
     setTimeout(function () {
       successLine.remove();
-    }, 2000);
+    }, SUCCESS_MESSAGE_TIMEOUT);
   });
 
   window.addEventListener('offline', function () {
@@ -70,7 +72,7 @@
 
     window.setTimeout(function () {
       successNode.remove();
-    }, 2000);
+    }, SUCCESS_MESSAGE_TIMEOUT);
   };
 
   /**
