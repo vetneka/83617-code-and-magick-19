@@ -92,15 +92,15 @@
     document.body.insertAdjacentElement('afterbegin', errorLine);
   };
 
-  window.wizard.onCoatChange = function (color) {
+  window.wizard.onCoatChange = window.debounce.set(function (color) {
     wizardCoatColor = color;
     updateWizards();
-  };
+  });
 
-  window.wizard.onEyesChange = function (color) {
+  window.wizard.onEyesChange = window.debounce.set(function (color) {
     wizardEyesColor = color;
     updateWizards();
-  };
+  });
 
   window.backend.load(onLoadWizardsSuccess, onLoadWizardsError);
 })();
