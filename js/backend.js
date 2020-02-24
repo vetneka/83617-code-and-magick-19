@@ -21,7 +21,7 @@
    *
    * @return {void}
    */
-  var onСheckXhrError = function (xhr, onError) {
+  var handleXhrError = function (xhr, onError) {
     xhr.addEventListener('error', function () {
       onError(XHR_ERROR_MESSAGE);
     });
@@ -63,7 +63,7 @@
       }
     });
 
-    onСheckXhrError(xhr, onError);
+    handleXhrError(xhr, onError);
 
     xhr.send();
   };
@@ -91,7 +91,7 @@
       }
     });
 
-    onСheckXhrError(xhr, onError);
+    handleXhrError(xhr, onError);
 
     xhr.send(data);
   };
