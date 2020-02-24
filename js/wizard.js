@@ -10,26 +10,35 @@
 
   var hiddenInputFields = setupWizard.querySelectorAll('input[type="hidden"]');
 
+  var wizard = {
+    onCoatChange: function () {},
+    onEyesChange: function () {},
+  };
+
   wizardCoat.addEventListener('click', function () {
-    var coatColor = window.random.getArrayValue(window.wizardProperty.coatColor);
-    wizardCoat.style.fill = coatColor;
+    var newColor = window.random.getArrayValue(window.wizardProperty.coatColor);
+    wizardCoat.style.fill = newColor;
 
     for (var i = 0; i < hiddenInputFields.length; i++) {
       if (hiddenInputFields[i].name === 'coat-color') {
-        hiddenInputFields[i].value = coatColor;
+        hiddenInputFields[i].value = newColor;
       }
     }
+
+    wizard.onCoatChange(newColor);
   });
 
   wizardEyes.addEventListener('click', function () {
-    var eyesColor = window.random.getArrayValue(window.wizardProperty.eyesColor);
-    wizardEyes.style.fill = eyesColor;
+    var newColor = window.random.getArrayValue(window.wizardProperty.eyesColor);
+    wizardEyes.style.fill = newColor;
 
     for (var i = 0; i < hiddenInputFields.length; i++) {
       if (hiddenInputFields[i].name === 'eyes-color') {
-        hiddenInputFields[i].value = eyesColor;
+        hiddenInputFields[i].value = newColor;
       }
     }
+
+    wizard.onEyesChange(newColor);
   });
 
   setupFireballWrap.addEventListener('click', function () {
@@ -42,4 +51,6 @@
       }
     }
   });
+
+  window.wizard = wizard;
 })();
